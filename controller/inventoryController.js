@@ -87,3 +87,22 @@ exports.update_item = function(req, res) {
         }
     });
 }
+
+exports.delete_item = function(req, res) {
+    var id = req.params.itemId;
+    Item.deleteItemById(id, function(err, result) {
+        if (result.affectedRows > 0) {
+            res.json({
+                id: id,
+                message: 'Successfully removed'
+            });
+        } else {
+            res.status(400).send({
+                error: true,
+                message: 'id does not exist'
+            });
+        }
+    });
+}
+
+

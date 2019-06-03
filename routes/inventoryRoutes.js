@@ -9,6 +9,6 @@ module.exports = function(app) {
 
     app.route('/inventory/:itemId')
         .get(inventory.get_item)
-        .put(inventory.update_item);
-        //.delete(inventory.delete_item);
+        .put(inventory.update_item)
+        .delete(inventory.delete_item);
 };
